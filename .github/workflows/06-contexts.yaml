@@ -8,6 +8,8 @@ on:
         description: Input type boolean
         type: boolean
         default: false
+env:
+  MY_WORKFLOW_VAR: "MY_WORKFLOW_VAR_VALUE"
 jobs:
   echo-data:
     runs-on: ubuntu-latest
@@ -24,3 +26,6 @@ jobs:
       - name: Retrive variable
         run: |
           echo "Variable value: ${{vars.MY_VAR}}"
+      - name: Print ENV variables
+        run: |
+          echo "Worlklow variable env: ${{env.MY_WORKFLOW_VAR}}"
